@@ -34,7 +34,7 @@ const Edit = () => {
     e.preventDefault();
     
     const response = await axios.post(
-      `http://localhost:8000/api/edit/${token}`,
+      `https://cardigan-fox.cyclic.app/api/edit/${token}`,
         {
           name,
           sector,
