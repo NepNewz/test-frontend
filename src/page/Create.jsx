@@ -1,5 +1,8 @@
 import { useState } from "react";
 import axios from "axios"
+import {Link, useNavigate} from "react-router-dom"
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 
 
@@ -14,6 +17,7 @@ function Create() {
   const [agreement, setAgreement] = useState("");
   const [sector, setSector] = useState(getInitialState);
   const [name, setName] = useState("");
+  const navigate = useNavigate();
 
 
 
@@ -29,8 +33,22 @@ function Create() {
         credentials: true
       }
     );
-    
     localStorage.setItem('token', response.data);
+    toast.success("Data Created", {
+      position: "bottom-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
+    
+    setTimeout(()=>{
+      navigate("/edit");
+
+    },2000)
 
   }
   
@@ -38,7 +56,7 @@ function Create() {
   return (
     <form
     onSubmit={handleSubmit}
-    className=' flex flex-col gap-8 bg-purple-400 text-black p-6 rounded-lg w-[25rem] text-lg'>
+    className=' flex flex-col gap-8 bg-purple-400 w-[70vw] text-black p-6 rounded-lg sm:w-[25rem] text-lg'>
       <p>
       Please enter your name and pick the Sectors you are currently involved in.
       </p>
@@ -143,6 +161,10 @@ function Create() {
       
       
       <button type="submit" className=' bg-cyan-300 outline-none'>Save</button>
+      <Link to="/edit">
+        <p className=" text-black border-2 border-black w-max items-center px-2 rounded-md bg-cyan-200">Edit</p> 
+      </Link>
+      <ToastContainer/>
       
     </form>
   )
