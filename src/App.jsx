@@ -1,6 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Create from "./page/create";
-import Edit from "./page/edit";
+import Create from "./Create";
+import Edit from "./Edit";
 import './App.css'
 
 const App = () => {
