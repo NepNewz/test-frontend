@@ -24,7 +24,7 @@ function Create() {
   const handleSubmit  =async(e)=>{
     e.preventDefault();
     const response = await axios.post(
-      "http://localhost:8000/api/user",
+      "https://cardigan-fox.cyclic.app/api/user",
       {
         name,
         sector,

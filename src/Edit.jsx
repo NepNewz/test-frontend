@@ -20,7 +20,7 @@ const Edit = () => {
   useEffect(()=>{
 
     const getData  = async()=>{
-    const res = await axios.get(`http://localhost:8000/api/getUser/${token}`)
+    const res = await axios.get(`https://cardigan-fox.cyclic.app/api/getUser/${token}`)
     console.log(res.data)
     setName(res.data.name)
     setSector(res.data.sector)
